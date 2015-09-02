@@ -2,7 +2,6 @@ import zipfile
 import re
 import time
 
-namepre = 'channel/'
 namesuff = '.txt'
 nothing = '90052'
 order = [nothing]
@@ -11,21 +10,21 @@ order = [nothing]
 # returns a string - either the nothing or text if a nothing isn't found
 def findnothing():
 	global string
-	string = open(namepre + str(nothing) + namesuff, 'r').read()
+	zipobject = zipfile.ZipFile('channel.zip', 'r')
+	string = zipobject.open(str(nothing) + namesuff, 'r').read()
 	matchObj = re.search(r'Next nothing is (\d+)', string, flags=0)
 	if matchObj:
+		print zipobject.getinfo(str(nothing) + namesuff).comment,
 		return matchObj.group(1)
 	else:
 		return string
 
+# iterate through all files (1001 to make sure we hit them all; not worried
+#	about going too far because it breaks when it finds no nothing)
 for i in range(0, 1001):
 	try:
 		nothing = int(findnothing())
-		print zipfile.ZipFile('channel/channel.zip', 'r').getinfo(str(order[0]) + namesuff).comment
-		order.append(nothing)
-#		print 'String: %r' % string
 	except ValueError:
 		print '\nValueError! There is no nothing here!\n     String:\n%s' % findnothing()
 		break
-#	time.sleep(.1)
 
