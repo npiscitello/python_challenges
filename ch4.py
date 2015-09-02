@@ -1,28 +1,32 @@
 import urllib
+import re
+
+# pseudocode
+# get html
+# search for next nothing
+#	regex "next nothing is "
+# use nothing to get next nothing
+# if no match and nothing 16044, divide by 2
+# if no match and anything else, print text
+
+
+
 
 urlbase = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing="
 nothing = 12345
 divisor = 1
+string = None
 def findnothing():
-	global nothing; global divisor
-	nothinglist = []
-	num = None
-	special = None
-	raw = urllib.urlopen(urlbase+str(nothing))
-	string = raw.read()
-	for i in range(0, len(string)-1):
-		try:
-			nothinglist.append(str(int(string[i])))
-		except ValueError:
-			if nothing == 16044:
-				nothinglist = ['8', '0', '2', '2']
-				divisor = 2
-		if i == len(string) - 1 and nothinglist[0] == None:
-			special = string
-	nothing = int(''.join(nothinglist))/divisor
-	if special != None:
-		print "special: %r" % special
+	global nothing; global divisor; global string
+	string = urllib.urlopen(urlbase+str(nothing)).read()
+	matchObj = re.search(r'next nothing is (\d+)', string, flags=0)
+	if matchObj:
+		nothing = int(matchObj.group(1))
+	elif nothing == 16044:
+		nothing /= 2
+#		divisor = 2
+	nothing /= divisor
 	return nothing
 
-for i in range(0,400):
-	print "nothing %d = %d" % (i, findnothing())
+for i in range(0, 401):
+	print "nothing %d = %d     string = %s" % (i, findnothing(), string)
