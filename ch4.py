@@ -10,15 +10,15 @@ def findnothing():
 	special = None
 	raw = urllib.urlopen(urlbase+str(nothing))
 	string = raw.read()
-	for i in string:
+	for i in range(0, len(string)-1):
 		try:
-			nothinglist.append(str(int(i)))
+			nothinglist.append(str(int(string[i])))
 		except ValueError:
 			if nothing == 16044:
 				nothinglist = ['8', '0', '2', '2']
 				divisor = 2
-			elif divisor == 2:
-				special = string
+		if i == len(string) - 1 and nothinglist[0] == None:
+			special = string
 	nothing = int(''.join(nothinglist))/divisor
 	if special != None:
 		print "special: %r" % special
