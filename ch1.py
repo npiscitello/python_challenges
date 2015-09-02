@@ -1,20 +1,13 @@
 def translate(input):
 	word = list(input)
-	i = 0
-	for j in word:
-		if j == 'k':
-			word[i] = 'm'
-		elif j == 'm':
-			word[i] = 'k'
-		elif j == 'o':
-			word[i] = 'q'
-		elif j == 'q':
-			word[i] = 'o'
-		elif j == 'e':
-			word[i] = 'g'
-		elif j == 'g':
-			word[i] = 'e'
-		i += 1
+	for i in range(0, len(word) - 1):
+		if word[i] not in [' ', '.', '(', ')', "'"]:
+			if word[i] == 'y':
+				word[i] = 'a'
+			elif word[i] == 'z':
+				word[i] = 'b'
+			else:	
+				word[i] = chr(ord(word[i]) + 2)
 	return word
 
 list = translate("g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj.")
