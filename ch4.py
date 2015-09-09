@@ -9,24 +9,22 @@ import re
 # if no match and nothing 16044, divide by 2
 # if no match and anything else, print text
 
-
-
-
 urlbase = "http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing="
-nothing = 12345
-divisor = 1
-string = None
-def findnothing():
-	global nothing; global divisor; global string
-	string = urllib.urlopen(urlbase+str(nothing)).read()
-	matchObj = re.search(r'next nothing is (\d+)', string, flags=0)
-	if matchObj:
-		nothing = int(matchObj.group(1))
-	elif nothing == 16044:
-		nothing /= 2
-#		divisor = 2
-	nothing /= divisor
-	return nothing
+nothing_init = 12345
 
+def findNextNothing(nothing):
+	string = urllib.urlopen(urlbase+str(nothing)).read()
+	matchObj = re.search(r'next nothing is (\d+)', string) 
+	if matchObj:
+		return [int(matchObj.group(1)), string, False]
+	elif re.search(r'Divide by two', string):
+		return [nothing/2, string, False]
+	elif re.search(r'.+html', string):
+		return [nothing, string, True]
+
+result = [nothing_init]
 for i in range(0, 401):
-	print "nothing %d = %d     string = %s" % (i, findnothing(), string)
+	result = findNextNothing(result[0])
+	print "nothing %d = %d     string = %s" % (i, result[0], result[1])
+	if result[2]:
+		break
