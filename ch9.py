@@ -10,9 +10,6 @@ raw = [None, None]
 raw[0] = searchObj.group(1)
 raw[1] = searchObj.group(2)
 
-#print 'first: %s' % raw[0]
-#print 'second: %s' % raw[1]
-
 # do for loop: add to current index until comma; comma increments
 data_list = [[],[]]
 for i in range(0,len(data_list)):
@@ -31,11 +28,6 @@ for i in range(0,len(data_list)):
 for i in range(0,len(data_list)):
 	for j in range (0,len(data_list[i])):
 		data_list[i][j] = int(data_list[i][j])
-
-#print '\nfirst: %s' % data_list[0],
-#print '          length: %d' % len(data_list[0])
-#print '\nsecond: %s' % data_list[1],
-#print '          length: %d' % len(data_list[1])
 
 if max(data_list[0]) > max(data_list[1]):
 	size = max(data_list[0])
