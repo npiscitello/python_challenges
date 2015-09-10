@@ -23,7 +23,7 @@ def findstr(input):
 				found = False
 				break
 		if found:
-			print ''.join(temp)
+			print temp[midslice],
 
 findstr("""kAewtloYgcFQaJNhHVGxXDiQmzjfcpYbzxlWrVcqsmUbCunkfxZWDZjUZMiGqhRRiUvGmYmvnJIHEmbT
 MUKLECKdCthezSYBpIElRnZugFAxDRtQPpyeCBgBfaRVvvguRXLvkAdLOeCKxsDUvBBCwdpMMWmuELeG
