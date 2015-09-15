@@ -38,4 +38,6 @@ im = Image.new('1', (size,size), 1)
 draw = ImageDraw.Draw(im)
 draw.line(data_list[0])
 draw.line(data_list[1])
-im.save('first+second.png')
+image_name = 'first+second.png'
+im.save(image_name)
+print 'Image solution - saved as %s' % image_name
