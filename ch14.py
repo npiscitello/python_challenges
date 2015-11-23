@@ -40,3 +40,5 @@ for i in range(0, square_dim * square_dim):
 	out.putpixel((coord[0],coord[1]),(src.getpixel((i,0))))
 
 out.save(out_image_path)
+
+print 'image output - saved as %s' % out_image_path

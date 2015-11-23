@@ -1,7 +1,6 @@
 *.png
 *.jpg
 *.gfx
-current_challenge
-ch5_pkl
-channel.zip
-ch09_source
+*.zip
+ch09_src
+

@@ -18,3 +18,4 @@ file_handle.close()
 
 for i in range(number):
 	images[i].close()
+print 'image outputs - saved as image0.jpg - image4.jpg',

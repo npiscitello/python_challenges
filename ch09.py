@@ -1,14 +1,21 @@
 import re
+import sys
 from PIL import Image,ImageDraw
 
-path = 'ch9_source'
-raw = open(path, 'r').read()
+path = 'ch09_src'
+try:
+	raw = open(path, 'r').read()
+except:
+	sys.exit('Did you copy the page source to a file called '+str(path)+'?')
 
-searchObj = re.search(r'first:\s(.+)\s\ssecond:\s(.+)\s\s-->', raw, flags=re.DOTALL)
+searchObj = re.search(r'first:\n(.+)second:(.+)', raw, flags=re.S)
 
-raw = [None, None]
-raw[0] = searchObj.group(1)
-raw[1] = searchObj.group(2)
+try:
+	raw = [None, None]
+	raw[0] = searchObj.group(1)
+	raw[1] = searchObj.group(2)
+except AttributeError:
+	sys.exit('No Matches! Did you copy the source correctly?')
 
 # do for loop: add to current index until comma; comma increments
 data_list = [[],[]]
