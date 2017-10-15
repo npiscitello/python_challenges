@@ -8,7 +8,7 @@ try:
 except:
 	sys.exit('Did you copy the page source to a file called '+str(path)+'?')
 
-searchObj = re.search(r'first:\n(.+)second:(.+)', raw, flags=re.S)
+searchObj = re.search(r'first:\n(.+)\n\nsecond:\n(.+)\n\n-->', raw, flags=re.S)
 
 try:
 	raw = [None, None]
