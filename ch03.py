@@ -7,23 +7,23 @@ def findstr(input):
 	# iterate from beginning to <slicesize> before the last item	
 	for i in range(0, len(input)-(slicesize+2)):
 		# take <slicesize>  char slice
-		slice = input[i:i+slicesize]
-		temp=[]
-		found = True
+		slice = input[i:i+slicesize];
+		temp=[];
+		found = True;
 		for i in range(0, len(slice)):
 			if slice[i].isupper() and i != midslice and i != (slicesize-1) and i !=  0:
-				temp.append(slice[i])
+				temp.append(slice[i]);
 			elif slice[i].islower() and i == 0:
-				temp.append(slice[i])
+				temp.append(slice[i]);
 			elif slice[i].islower() and i == (slicesize - 1):
-				temp.append(slice[i])
+				temp.append(slice[i]);
 			elif slice[i].islower() and i == midslice:
-				temp.append(slice[i])
+				temp.append(slice[i]);
 			else:
-				found = False
-				break
+				found = False;
+				break;
 		if found:
-			print temp[midslice],
+			print(temp[midslice]);
 
 findstr("""kAewtloYgcFQaJNhHVGxXDiQmzjfcpYbzxlWrVcqsmUbCunkfxZWDZjUZMiGqhRRiUvGmYmvnJIHEmbT
 MUKLECKdCthezSYBpIElRnZugFAxDRtQPpyeCBgBfaRVvvguRXLvkAdLOeCKxsDUvBBCwdpMMWmuELeG

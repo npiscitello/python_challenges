@@ -2,10 +2,10 @@ def findrare(string):
 	list = {}
 	for i in string:
 		if i in list:
-			list[i] += 1
+			list[i] += 1;
 		else:
-			list[i] = 0
-	return list
+			list[i] = 0;
+	return list;
 
 string = """%%$@_$^__#)^)&!_+]!*@&^}@[@%]()%+$&[(_@%+%$*^@$^!+]!&_#)_*}{}}!}_]$[%}@[{_@#_^{*
 @##&{#&{&)*%(]{{([*}@[@&]+!!*{)!}{%+{))])[!^})+)$]#{*+^((@^@}$[**$&^{$!@#$%)!@(&
@@ -1228,6 +1228,6 @@ $#_}*!(+([_&%{^&[([%]}*^{{([@+@]@*&@_!]_+([(#&!]]#$$#]@#{_]][_{@]{*))$({%}_![@$]
 }!)$]&($)@](+(#{$)_%^%_^^#][{*[)%}+[##(##^{$}^]#&(&*{)%)&][&{]&#]}[[^^&[!#}${@_(
 #@}&$[[%]_&$+)$!%{(}$^$}*""".replace("/n", "")
 
-diction = findrare(string)
-sdiction = sorted(diction.keys())
-print sdiction
+diction = findrare(string);
+sdiction = sorted(diction.keys());
+print(sdiction);
