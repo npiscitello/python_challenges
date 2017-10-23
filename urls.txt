@@ -1,9 +1,11 @@
-1: http://www.pythonchallenge.com/pc/def/map.html
-2: http://www.pythonchallenge.com/pc/def/ocr.html
-3: http://www.pythonchallenge.com/pc/def/equality.html
-4: http://www.pythonchallenge.com/pc/def/linkedlist.php
-5: http://www.pythonchallenge.com/pc/def/peak.html
-6: http://www.pythonchallenge.com/pc/def/channel.html
-7: http://www.pythonchallenge.com/pc/def/oxygen.html
-8: http://www.pythonchallenge.com/pc/def/integrity.html
-9: http://www.pythonchallenge.com/pc/return/good.html (un: huge, pw: file)
+    http://www.pythonchallenge.com/pc/
+01: def/map.html
+02: def/ocr.html
+03: def/equality.html
+04: def/linkedlist.php
+05: def/peak.html
+06: def/channel.html
+07: def/oxygen.html
+08: def/integrity.html
+09: return/good.html (un: huge, pw: file)
+10: return/bull.html
